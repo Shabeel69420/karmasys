@@ -15,7 +15,6 @@ hook.Add("Karma:Network:Data" , "ls43" , function(sid64)
     net.Start("SendFirst.💜")
     net.WriteInt(😘, 32)
     net.Send(🤓)
-    print("Sending Real DATA")
 end)
 
 function Karma:SendMessage(msg , color , ply , steamid)
@@ -54,7 +53,6 @@ end
 
 
 function Karma:AddKarma(sid64, num)
-    print("Nil Higger"..num)
     local real = tonumber(num)
     if !Karma:MinMax(sid64, 'Max' , real) then
         return false
@@ -72,7 +70,6 @@ end
 
 
 function Karma:RemoveKarma(sid64, num)
-    print("Nil"..num)
     local real = tonumber(num)
     if !Karma:MinMax(sid64, 'Min' , real) then
         return false
@@ -80,7 +77,6 @@ function Karma:RemoveKarma(sid64, num)
 	local d = sql.Query("SELECT * FROM Karma_Data WHERE sid64 = "..sql.SQLStr(sid64)..";")
 	if d then
         local pre_int = tonumber(d[1].karma - real)
-        print(pre_int)
 		sql.Query("UPDATE Karma_Data SET karma = "..tonumber(pre_int).."  WHERE sid64 = "..sql.SQLStr(sid64)..";")
 	else
 		sql.Query("INSERT INTO Karma_Data (sid64, karma) VALUES("..sql.SQLStr(sid64)..", "..-real..")")
@@ -121,7 +117,6 @@ function Karma:MinMax(sid64, state , amount)
 
     if state == "Min" then
         local karma = Karma:ReturnKarma(sid64) - (amount or 0) + (1)
-        --print("Real dick"..Karma.Cfg.KarmaMin.."  Dildo  "..karma)
         if not karma or tonumber(karma) <= Karma.Cfg.MinKarma then
             return false
         else
@@ -173,7 +168,6 @@ end
 
 hook.Add("PlayerDeath" , "Karma:OnDeath" , function(ply , _ , a)
     if a:IsPlayer() then
-            print(a , ply)
             if ply:isWanted() then
                 Karma:AddKarma(a:SteamID64(), 10)
             else
