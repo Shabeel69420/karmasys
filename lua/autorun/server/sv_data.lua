@@ -137,7 +137,6 @@ function Karma:MinMax(sid64, state , amount)
 end
 
 
--- lucas is going to rape jack -- 
 
 function Karma:ClosestState(intVal)
     local closestKarma = 0
