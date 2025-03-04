@@ -9,7 +9,7 @@ Karma.Cfg = {
     MaxKarma = 100,
     MinKarma = -100, 
     States = {
-    [100] = "Godlike", // [Karma] = State (we get the one ur closest to)
+    [100] = "Godlike", // [Karma] = State (We get the one you're closest to.)
     [90] = "Good",
     [80] = "Good",
     [70] = "Good",
